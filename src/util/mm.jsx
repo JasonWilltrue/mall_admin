@@ -7,6 +7,8 @@ import { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } from "constants";
  * @LastEditTime: 2018-11-08 23:18:50
  * @Description: 封装方法
  */
+import { Sweetalert, Button } from 'zent';
+
 
 class MUtil{
   request(param){
@@ -49,13 +51,21 @@ class MUtil{
   }
   // 成功提示
   successTips(successMsg){
-    
-    layer.alert(successMsg, {icon: 1});
+    Sweetalert.alert({
+        type: 'success',
+        title: '成功提示',
+        content: successMsg,
+      });
+    // layer.alert(successMsg, {icon: 1});
   }
   // 错误提示
   errorTips(errMsg){
-  
-  layer.alert(errMsg || '好像哪里不对了~', {icon: 2});
+    Sweetalert.alert({
+        type: 'error',
+        title: '错误提示',
+        content: errMsg || '好像哪里不对了~',
+      });
+//   layer.alert(errMsg || '好像哪里不对了~', {icon: 2});
   }
   // 本地存储
   setStorage(name, data){
@@ -73,6 +83,7 @@ class MUtil{
       }
       // 其他不支持的类型
       else{
+
           layer.msg('该类型不能用于本地存储');
       }
   }

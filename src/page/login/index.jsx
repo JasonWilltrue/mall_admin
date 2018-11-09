@@ -10,7 +10,7 @@ import React from 'react';
 import MUtil from 'util/mm.jsx';
 import './index.less';
 import UserService from 'service/user-service.jsx';
-
+import Button from 'zent/lib/button';
 
 
 let _mm = new MUtil();
@@ -92,10 +92,12 @@ class Login extends React.Component {
 									onChange={e => this.onInputChange(e)}
 								/>
 							</div>
-							<a href="javascript:" className="ui-button ui-button-primary loginBtn" role="button"
-							onClick={e => this.onSubmit(e)} 
-							onKeyUp={e => this.onInputKeyUp(e)} 
-							>登录</a>
+							<Button type="primary"
+							 className="loginBtn"
+							 onClick={e => this.onSubmit(e)} 
+							 onKeyUp={e => this.onInputKeyUp(e)} 
+							>登录</Button>
+							
 							
 						</div>
 					</div>

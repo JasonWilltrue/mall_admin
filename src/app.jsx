@@ -9,7 +9,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Redirect, Route, Link } from 'react-router-dom';
-import 'node_modules/layui-src/src/css/layui.css';
+import 'zent/css/index.css';
 import Home from 'page/home/index.jsx';
 import Login from 'page/login/index.jsx';
 import Layout from 'component/layout/index.jsx';
