@@ -19,7 +19,7 @@ class PageTitle extends React.Component{
         return (
             <div className="row">
                 <div className="col-md-12">
-                    <h1 className="page-header">{this.props.title}</h1>
+                <blockquote className="layui-elem-quote">{this.props.title}  </blockquote>
                     {/* 容器组件加入 */}
                     {this.props.children}   
                 </div>

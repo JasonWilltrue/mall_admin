@@ -23,6 +23,7 @@ module.exports = {
     },
     resolve: {
         alias : {
+            node_modules        : path.resolve(__dirname, 'node_modules'),
             page        : path.resolve(__dirname, 'src/page'),
             component   : path.resolve(__dirname, 'src/component'),
             util        : path.resolve(__dirname, 'src/util'),

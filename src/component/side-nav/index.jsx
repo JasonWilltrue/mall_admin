@@ -15,9 +15,9 @@ class SideNav extends Component {
 							</NavLink>
 						</li>
 						<li>
-							<Link to="/">
-								<i className="fa fa-desktop" />商品管理
-							</Link>
+							<NavLink to="/user" activeClassName="active-menu">
+								<i className="fa fa-user" />用户管理
+							</NavLink>
 						</li>
 						<li className="active">
 							<Link to="/product">
@@ -43,11 +43,6 @@ class SideNav extends Component {
                 <NavLink to="/order" activeClassName="active-menu">订单管理</NavLink>
 								</li>
 							</ul>
-						</li>
-            <li>
-							<NavLink to="/user" activeClassName="active-menu">
-								<i className="fa fa-user" />用户管理
-							</NavLink>
 						</li>
 						<li>
 							<a href="empty.html">
