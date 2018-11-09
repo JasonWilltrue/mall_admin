@@ -15,16 +15,15 @@ class Pagination extends React.Component{
     constructor(props){
         super(props);
     }
-    componentDidMount() {
-        console.log(this.props.totalPage);
-   
-        
-		
-	}
     render(){
-       
         return (
-           null
+            <div className="row">
+                <div className="col-md-12">
+                    <RcPagination {...this.props} 
+                        hideOnSinglePage
+                        showQuickJumper/>
+                </div>
+            </div>
         );
     }
 }
