@@ -32,26 +32,29 @@ class ProductList extends React.Component {
 	componentDidMount() {
 		this.loadProductList();
 	}
- // 加载商品列表
- loadProductList(){
-	let listParam = {};
-	listParam.listType = this.state.listType;
-	listParam.pageNum  = this.state.pageNum;
-	// 如果是搜索的话，需要传入搜索类型和搜索关键字
-	if(this.state.listType === 'search'){
+	// 加载商品列表
+	loadProductList() {
+		let listParam = {};
+		listParam.listType = this.state.listType;
+		listParam.pageNum = this.state.pageNum;
+		// 如果是搜索的话，需要传入搜索类型和搜索关键字
+		if (this.state.listType === 'search') {
 			listParam.searchType = this.state.searchType;
-			listParam.keyword    = this.state.searchKeyword;
+			listParam.keyword = this.state.searchKeyword;
+		}
+		// 请求接口
+		_product.getProductList(listParam).then(
+			res => {
+				this.setState(res);
+			},
+			errMsg => {
+				this.setState({
+					list: [],
+				});
+				_mm.errorTips(errMsg);
+			}
+		);
 	}
-	// 请求接口
-	_product.getProductList(listParam).then(res => {
-			this.setState(res);
-	}, errMsg => {
-			this.setState({
-					list : []
-			});
-			_mm.errorTips(errMsg);
-	});
-}
 	// 页数发生变化的时候
 	onPageNumChange(pageNum) {
 		// setstate是异步函数 要在函数之后加回调函数
@@ -144,7 +147,11 @@ class ProductList extends React.Component {
 		return (
 			<div id="page-wrapper">
 				<PageTitle title="商品列表" />
-				<ListSearch onSearch={(searchType, searchKeyword) => {this.onSearch(searchType, searchKeyword)}}/>
+				<ListSearch
+					onSearch={(searchType, searchKeyword) => {
+						this.onSearch(searchType, searchKeyword);
+					}}
+				/>
 				<TableList tableHeads={tableHeads}>{listBody}</TableList>
 				<Pagination
 					current={this.state.pageNum}
