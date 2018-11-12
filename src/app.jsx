@@ -15,6 +15,7 @@ import Login from 'page/login/index.jsx';
 import Layout from 'component/layout/index.jsx';
 import User from 'page/user/index.jsx';
 import Error from 'page/error/index.jsx';
+import ProductRouter from 'page/product/router.jsx';
 class App extends Component {
 	render() {
 		let LayoutRouter = (
@@ -22,6 +23,7 @@ class App extends Component {
 				<Switch>
 					<Route exact path="/" component={Home} />
 					<Route  path="/user" component={User} />
+					<Route  path="/product" component={ProductRouter} />
 					{/* <Route  path="/product/index" component={Product} />
 					<Redirect exact from="./product" to="./product/index"/> */}
 					<Route component={Error}/>
