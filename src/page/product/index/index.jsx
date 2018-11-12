@@ -9,14 +9,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MUtil from 'util/mm.jsx';
-import User from 'service/product-service.jsx';
+import Product from 'service/product-service.jsx';
 
 import PageTitle from 'component/page-title/index.jsx';
 import TableList from 'util/table-list/index.jsx';
 import Pagination from 'util/pagination/index.jsx';
 
 const _mm = new MUtil();
-const _user = new User();
+const _product = new Product();
 
 class ProductList extends React.Component {
 	constructor(props) {
@@ -27,10 +27,10 @@ class ProductList extends React.Component {
 		};
 	}
 	componentDidMount() {
-		this.loadUserList();
+		this.loadProductList();
 	}
-	loadUserList() {
-		_user
+	loadProductList() {
+		_product
 			.getProductList({
 				listType: 'list',
 				pageNum: this.state.pageNum,
@@ -60,7 +60,7 @@ class ProductList extends React.Component {
 			}
 		);
 	}
-	onSetProductStatus(e, currentStatus) {
+	onSetProductStatus(e,productId, currentStatus) {
 		let newStatus = currentStatus == 1 ? 2 : 1;
 		let tips = currentStatus == 1 ? '商品下架' : '商品上架';
 		if (window.confirm(tips)) {
@@ -71,8 +71,8 @@ class ProductList extends React.Component {
 				})
 				.then(
 					res => {
-                        _mm.successTips(res);
-                        //修改状态完成重新渲染
+						_mm.successTips(res);
+						//修改状态完成重新渲染
 						this.loadProductList();
 					},
 					errMsg => {
@@ -100,14 +100,14 @@ class ProductList extends React.Component {
 					</td>
 					<td>￥{product.price}</td>
 					<td>
-						<span>{product.status == 1 ? '在售' : '已下架'}</span>
-						<button onClick={e => this.onSetProductStatus(e, product.status)}>
+						<p>{product.status == 1 ? '在售' : '已下架'}</p>
+						<button className="btn btn-warning btn-xs" onClick={e => this.onSetProductStatus(e,product.id, product.status)}>
 							{product.status == 1 ? '下架' : '上架'}
 						</button>
 					</td>
 					<td>
-						<Link to={`/product/detail/${product.id}`}>查看详情</Link>
-						<Link to={`/product/save/${product.id}`}>编辑</Link>
+						<Link className="btn btn-primary" to={`/product/detail/${product.id}`}>查看详情</Link>
+						<Link style={{marginLeft: 20}} className="btn btn-success" to={`/product/save/${product.id}`}>编辑</Link>
 					</td>
 				</tr>
 			);
