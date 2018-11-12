@@ -14,6 +14,8 @@ import Product from 'service/product-service.jsx';
 import PageTitle from 'component/page-title/index.jsx';
 import TableList from 'util/table-list/index.jsx';
 import Pagination from 'util/pagination/index.jsx';
+import ListSearch from './index-list-search.jsx';
+import './index.less';
 
 const _mm = new MUtil();
 const _product = new Product();
@@ -24,30 +26,32 @@ class ProductList extends React.Component {
 		this.state = {
 			list: [],
 			pageNum: 1,
+			listType: 'list',
 		};
 	}
 	componentDidMount() {
 		this.loadProductList();
 	}
-	loadProductList() {
-		_product
-			.getProductList({
-				listType: 'list',
-				pageNum: this.state.pageNum,
-			})
-			.then(
-				res => {
-					console.log(res);
-					this.setState(res);
-				},
-				errMsg => {
-					this.setState({
-						list: [],
-					});
-					_mm.errorTips(errMsg);
-				}
-			);
+ // 加载商品列表
+ loadProductList(){
+	let listParam = {};
+	listParam.listType = this.state.listType;
+	listParam.pageNum  = this.state.pageNum;
+	// 如果是搜索的话，需要传入搜索类型和搜索关键字
+	if(this.state.listType === 'search'){
+			listParam.searchType = this.state.searchType;
+			listParam.keyword    = this.state.searchKeyword;
 	}
+	// 请求接口
+	_product.getProductList(listParam).then(res => {
+			this.setState(res);
+	}, errMsg => {
+			this.setState({
+					list : []
+			});
+			_mm.errorTips(errMsg);
+	});
+}
 	// 页数发生变化的时候
 	onPageNumChange(pageNum) {
 		// setstate是异步函数 要在函数之后加回调函数
@@ -60,7 +64,8 @@ class ProductList extends React.Component {
 			}
 		);
 	}
-	onSetProductStatus(e,productId, currentStatus) {
+
+	onSetProductStatus(e, productId, currentStatus) {
 		let newStatus = currentStatus == 1 ? 2 : 1;
 		let tips = currentStatus == 1 ? '商品下架' : '商品上架';
 		if (window.confirm(tips)) {
@@ -81,6 +86,23 @@ class ProductList extends React.Component {
 				);
 		}
 	}
+
+	// 搜索
+	onSearch(searchType, searchKeyword) {
+		let listType = searchKeyword === '' ? 'list' : 'search';
+		this.setState(
+			{
+				listType: listType,
+				pageNum: 1,
+				searchType: searchType,
+				searchKeyword: searchKeyword,
+			},
+			() => {
+				this.loadProductList();
+			}
+		);
+	}
+
 	//new Date(user.createTime).toLocaleString() 把 12321312312312 转化 2021/09/22 上午 12:22:33
 	render() {
 		let tableHeads = [
@@ -101,13 +123,20 @@ class ProductList extends React.Component {
 					<td>￥{product.price}</td>
 					<td>
 						<p>{product.status == 1 ? '在售' : '已下架'}</p>
-						<button className="btn btn-warning btn-xs" onClick={e => this.onSetProductStatus(e,product.id, product.status)}>
+						<button
+							className="btn btn-warning btn-xs"
+							onClick={e => this.onSetProductStatus(e, product.id, product.status)}
+						>
 							{product.status == 1 ? '下架' : '上架'}
 						</button>
 					</td>
 					<td>
-						<Link className="btn btn-primary" to={`/product/detail/${product.id}`}>查看详情</Link>
-						<Link style={{marginLeft: 20}} className="btn btn-success" to={`/product/save/${product.id}`}>编辑</Link>
+						<Link className="btn btn-primary" to={`/product/detail/${product.id}`}>
+							查看详情
+						</Link>
+						<Link style={{ marginLeft: 20 }} className="btn btn-success" to={`/product/save/${product.id}`}>
+							编辑
+						</Link>
 					</td>
 				</tr>
 			);
@@ -115,6 +144,7 @@ class ProductList extends React.Component {
 		return (
 			<div id="page-wrapper">
 				<PageTitle title="商品列表" />
+				<ListSearch onSearch={(searchType, searchKeyword) => {this.onSearch(searchType, searchKeyword)}}/>
 				<TableList tableHeads={tableHeads}>{listBody}</TableList>
 				<Pagination
 					current={this.state.pageNum}
