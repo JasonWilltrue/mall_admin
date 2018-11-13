@@ -2,7 +2,7 @@
  * @Author: Jerrychan
  * @Date: 2018-11-10 15:15:48
  * @LastEditors: Jerrychan
- * @LastEditTime: 2018-11-10 23:35:58
+ * @LastEditTime: 2018-11-13 18:56:22
  * @Description: 商品列表
  */
 
@@ -146,7 +146,14 @@ class ProductList extends React.Component {
 		});
 		return (
 			<div id="page-wrapper">
-				<PageTitle title="商品列表" />
+				<PageTitle title="商品列表">
+				  <div className="page-header-right">
+					  <Link to="/product/save"  className='btn btn-success'>
+						    <i className="fa fa-plus"></i>
+								<span>添加商品</span>
+						</Link>
+					</div>
+				</PageTitle>
 				<ListSearch
 					onSearch={(searchType, searchKeyword) => {
 						this.onSearch(searchType, searchKeyword);
