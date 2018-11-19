@@ -24,6 +24,7 @@ class CategorySelector extends React.Component{
     }
 
     componentDidMount(){
+        //加载一级分类
         this.loadFirstCategory();
     }
     componentWillReceiveProps(nextProps){
@@ -80,7 +81,7 @@ class CategorySelector extends React.Component{
         this.setState({
             firstCategoryId     : newValue,
             secondCategoryId    : 0,
-            secondCategoryList  : []
+            secondCategoryList  : []  //如果重新点击 要清空二级分类
         }, () => {
             // 更新二级品类
             this.loadSecondCategory();
@@ -100,7 +101,7 @@ class CategorySelector extends React.Component{
         });
     }
     // 传给父组件选中的结果
-    onPropsCategoryChange(){
+    onPropsCategoryChange(){ 
         // 判断props里的回调函数存在
         let categoryChangable = typeof this.props.onCategoryChange === 'function';
         // 如果是有二级品类

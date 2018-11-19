@@ -2,17 +2,13 @@
  * @Author: Jerrychan
  * @Date: 2018-11-13 18:54:11
  * @LastEditors: Jerrychan
- * @LastEditTime: 2018-11-13 23:35:30
+ * @LastEditTime: 2018-11-14 09:38:58
  * @Description:  添加商品页面
  */
 
 import React, { Component } from 'react';
 import PageTitle from 'component/page-title/index.jsx';
 import CategorySelector     from './category-selector.jsx';
-
-
-
-
 
 class ProductSave extends Component {
     constructor(props){
