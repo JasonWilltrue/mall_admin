@@ -2,21 +2,22 @@
  * @Author: Jerrychan
  * @Date: 2018-11-13 18:54:11
  * @LastEditors: Jerrychan
- * @LastEditTime: 2018-11-14 09:38:58
+ * @LastEditTime: 2018-11-20 00:13:07
  * @Description:  添加商品页面
  */
 
 import React, { Component } from 'react';
 import PageTitle from 'component/page-title/index.jsx';
 import CategorySelector     from './category-selector.jsx';
-
+import FileUploader from 'util/file-uploader/index.jsx';
 class ProductSave extends Component {
     constructor(props){
         super(props)
         this.state={
             id:'',
             categoryId:'',
-            parentCategoryId:'',
+						parentCategoryId:'',
+						subImages:[],
         }
     }
     onValueChange(){
@@ -98,7 +99,7 @@ class ProductSave extends Component {
 					<div className="form-group">
 						<label className="col-md-2 control-label">商品图片</label>
 						 <div className="col-md-10">
-							{/* {this.state.subImages.length ? (
+							{this.state.subImages.length ? (
 								this.state.subImages.map((image, index) => (
 									<div className="img-con" key={index}>
 										<img className="img" src={image.url} />
@@ -107,13 +108,13 @@ class ProductSave extends Component {
 								))
 							) : (
 								<div>请上传图片</div>
-							)} */}
+							)}
 						</div> 
 						<div className="col-md-offset-2 col-md-10 file-upload-con">
-							{/* <FileUploader
+							<FileUploader
 								onSuccess={res => this.onUploadSuccess(res)}
 								onError={errMsg => this.onUploadError(errMsg)}
-							/> */}
+							/>
 						</div>
 					</div>
 					<div className="form-group">

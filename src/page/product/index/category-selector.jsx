@@ -85,7 +85,7 @@ class CategorySelector extends React.Component{
         }, () => {
             // 更新二级品类
             this.loadSecondCategory();
-            this.onPropsCategoryChange();
+            this.onPropsCategoryChange(); //暴露一级品类 已经选过了
         });
     }
     // 选择二级品类
