@@ -2,7 +2,7 @@
  * @Author: Jerrychan
  * @Date: 2018-11-13 18:54:11
  * @LastEditors: Jerrychan
- * @LastEditTime: 2018-11-20 12:59:46
+ * @LastEditTime: 2018-11-20 23:04:29
  * @Description:  添加商品页面
  */
 
@@ -10,6 +10,7 @@ import React, { Component } from 'react';
 import PageTitle from 'component/page-title/index.jsx';
 import CategorySelector from './category-selector.jsx';
 import FileUploader from 'util/file-uploader/index.jsx';
+import "./save.less";
 class ProductSave extends Component {
 	constructor(props) {
 		super(props);
@@ -30,27 +31,28 @@ class ProductSave extends Component {
 	onCategoryChange(categoryId, parentCategoryId) {
 		console.log(categoryId, parentCategoryId);
 	}
-	 // 上传图片成功
-	 onUploadSuccess(res){
+	// 上传图片成功
+	onUploadSuccess(res) {
 		let subImages = this.state.subImages;
 		subImages.push(res);
 		this.setState({
-				subImages : subImages
+			subImages: subImages,
 		});
-}
-// 上传图片失败
-onUploadError(errMsg){
+	}
+	// 上传图片失败
+	onUploadError(errMsg) {
 		_mm.errorTips(errMsg);
-}
-// 删除图片
-onImageDelete(e){
-		let index       = parseInt(e.target.getAttribute('index')),
-				subImages   = this.state.subImages;
+	}
+	// 删除图片
+	onImageDelete(e) {
+		//删除的下标强转int类型
+		let index = parseInt(e.target.getAttribute('index')),
+			subImages = this.state.subImages;
 		subImages.splice(index, 1);
 		this.setState({
-				subImages : subImages
+			subImages: subImages,
 		});
-}
+	}
 	render() {
 		return (
 			<div id="page-wrapper">
