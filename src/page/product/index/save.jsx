@@ -2,7 +2,7 @@
  * @Author: Jerrychan
  * @Date: 2018-11-13 18:54:11
  * @LastEditors: Jerrychan
- * @LastEditTime: 2018-11-20 23:04:29
+ * @LastEditTime: 2018-11-21 14:41:36
  * @Description:  添加商品页面
  */
 
@@ -10,19 +10,30 @@ import React, { Component } from 'react';
 import PageTitle from 'component/page-title/index.jsx';
 import CategorySelector from './category-selector.jsx';
 import FileUploader from 'util/file-uploader/index.jsx';
-import "./save.less";
+import './save.less';
 class ProductSave extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			id: '',
-			categoryId: '',
-			parentCategoryId: '',
+			id: this.props.match.params.pid,
+			name: '',
+			subtitle: '',
+			categoryId: 0,
+			parentCategoryId: 0,
 			subImages: [],
+			price: '',
+			stock: '',
+			detail: '',
+			status: 1, //商品状态1为在售
 		};
 	}
-	onValueChange() {
-		alert('添加');
+	// 简单字段的改变，比如商品名称，描述，价格，库存
+	onValueChange(e) {
+		let name = e.target.name,
+			value = e.target.value.trim();
+		this.setState({
+			[name]: value,
+		});
 	}
 	onSubmit() {
 		alert('添加');
@@ -83,7 +94,7 @@ class ProductSave extends Component {
 						</div>
 					</div>
 					<div className="form-group">
-						<label className="col-md-2 control-label">所属分类</label>
+						<label className="col-md-2 control-label">所属分类</label> 
 						<CategorySelector
 							categoryId={this.state.categoryId}
 							parentCategoryId={this.state.parentCategoryId}
