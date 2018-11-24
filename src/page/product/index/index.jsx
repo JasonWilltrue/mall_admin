@@ -2,7 +2,7 @@
  * @Author: Jerrychan
  * @Date: 2018-11-10 15:15:48
  * @LastEditors: Jerrychan
- * @LastEditTime: 2018-11-13 18:56:22
+ * @LastEditTime: 2018-11-25 01:09:30
  * @Description: 商品列表
  */
 
@@ -101,7 +101,7 @@ class ProductList extends React.Component {
 				searchKeyword: searchKeyword,
 			},
 			() => {
-				this.loadProductList();
+				this.loadProductList();  //回调后的加载
 			}
 		);
 	}
