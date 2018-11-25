@@ -36,6 +36,22 @@ class ProductSave extends Component {
 		});
 	}
 	onSubmit() {
+		let product = {
+			name: this.state.name,
+			subtitle: this.state.subtitle,
+			categoryId: this.state.categoryId,
+			parentCategoryId: this.state.parentCategoryId,
+			subImages: this.state.subImages,  //数组转字符串
+			price: this.state.price,
+			stock: this.state.stock,
+			detail: '', //商品描述
+			status:this.state.status,
+		}
+		
+		
+
+
+
 		alert('添加');
 	}
 	//品类选择器的变化
