@@ -12,6 +12,7 @@ import Product from "service/product-service.jsx";
 import PageTitle from "component/page-title/index.jsx";
 import CategorySelector from "./category-selector.jsx";
 import FileUploader from "util/file-uploader/index.jsx";
+
 import "./save.less";
 
 const _mm = new MUtil();
