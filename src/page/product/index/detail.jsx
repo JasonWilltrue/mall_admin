@@ -11,7 +11,7 @@ import Product              from 'service/product-service.jsx'
 import PageTitle            from 'component/page-title/index.jsx';
 import CategorySelector     from './category-selector.jsx';
 
-import './save.scss';
+import './save.less';
 
 const _mm           = new MUtil();
 const _product      = new Product();
