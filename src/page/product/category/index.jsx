@@ -23,10 +23,12 @@ class CategoryList extends React.Component{
     componentDidMount(){
         this.loadCategoryList();
     }
+    // 优化性能
     componentDidUpdate(prevProps, prevState){
         let oldPath = prevProps.location.pathname,
             newPath = this.props.location.pathname,
             newId   = this.props.match.params.categoryId || 0;
+            console.log('componentDidUpdate:  '+this.props.match.params.categoryId);
         if(oldPath !== newPath){
             this.setState({
                 parentCategoryId : newId
@@ -47,9 +49,11 @@ class CategoryList extends React.Component{
             });
             _mm.errorTips(errMsg);
         });
+        // console.log(this.state.list);
     }
     // 更新品类的名字
     onUpdateName(categoryId, categoryName){
+        //弹框显示要修改的商品名称
         let newName = window.prompt('请输入新的品类名称', categoryName);
         if(newName){
             _product.updateCategoryName({

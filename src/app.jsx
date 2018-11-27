@@ -24,6 +24,7 @@ class App extends Component {
 					<Route exact path="/" component={Home} />
 					<Route  path="/user" component={User} />
 					<Route  path="/product" component={ProductRouter} />
+					<Route path="/product-category" component={ProductRouter}/>
 					{/* <Route  path="/product/index" component={Product} />
 					<Redirect exact from="./product" to="./product/index"/> */}
 					<Route component={Error}/>
