@@ -1,9 +1,11 @@
 /*
-* @Author: Rosen
-* @Date:   2018-02-02 10:11:10
-* @Last Modified by:   Rosen
-* @Last Modified time: 2018-02-02 22:08:53
-*/
+ * @Author: Jerrychan
+ * @Date: 2018-11-25 23:43:28
+ * @LastEditors: Jerrychan
+ * @LastEditTime: 2018-11-29 16:13:25
+ * @Description: 这里填写页面信息
+ */
+
 import React        from 'react';
 import MUtil        from 'util/mm.jsx'
 import Product      from 'service/product-service.jsx'
