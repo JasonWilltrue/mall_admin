@@ -2,7 +2,7 @@
  * @Author: Jerrychan
  * @Date: 2018-11-08 15:00:16
  * @LastEditors: Jerrychan
- * @LastEditTime: 2018-11-25 01:08:56
+ * @LastEditTime: 2018-11-29 23:58:43
  * @Description: 入口文件
  */
 
@@ -16,18 +16,20 @@ import Layout from 'component/layout/index.jsx';
 import User from 'page/user/index.jsx';
 import Error from 'page/error/index.jsx';
 import ProductRouter from 'page/product/router.jsx';
+import Order from 'page/order/index.jsx';
 class App extends Component {
 	render() {
 		let LayoutRouter = (
 			<Layout>
 				<Switch>
 					<Route exact path="/" component={Home} />
-					<Route  path="/user" component={User} />
-					<Route  path="/product" component={ProductRouter} />
-					<Route path="/product-category" component={ProductRouter}/>
+					<Route path="/user" component={User} />
+					<Route path="/product" component={ProductRouter} />
+					<Route path="/product-category" component={ProductRouter} />
+					<Route path="/order" component={Order} />
 					{/* <Route  path="/product/index" component={Product} />
 					<Redirect exact from="./product" to="./product/index"/> */}
-					<Route component={Error}/>
+					<Route component={Error} />
 				</Switch>
 			</Layout>
 		);
@@ -35,7 +37,7 @@ class App extends Component {
 			<Router>
 				<Switch>
 					<Route path="/login" component={Login} />
-					<Route path="/" render={ props => LayoutRouter}/>
+					<Route path="/" render={props => LayoutRouter} />
 				</Switch>
 			</Router>
 		);
