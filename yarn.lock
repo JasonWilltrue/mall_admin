@@ -249,6 +249,13 @@ async-each@^1.0.0:
   resolved "http://registry.npm.taobao.org/async-each/download/async-each-1.0.1.tgz#19d386a1d9edc6e7c1c85d388aedbcc56d33602d"
   integrity sha1-GdOGodntxufByF04iu28xW0zYC0=
 
+async-validator@^1.8.5:
+  version "1.10.0"
+  resolved "http://registry.npm.taobao.org/async-validator/download/async-validator-1.10.0.tgz#59a392a1b48565c2eb43faddb4e54d7d86dce293"
+  integrity sha1-WaOSobSFZcLrQ/rdtOVNfYbc4pM=
+  dependencies:
+    babel-runtime "6.x"
+
 async@^1.5.2:
   version "1.5.2"
   resolved "http://registry.npm.taobao.org/async/download/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
@@ -1261,7 +1268,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.5:
+classnames@^2.2.5, classnames@^2.2.6:
   version "2.2.6"
   resolved "http://registry.npm.taobao.org/classnames/download/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha1-Q5Nb/90pHzJtrQogUwmzjQD2UM4=
@@ -1823,6 +1830,24 @@ electron-to-chromium@^1.3.47:
   version "1.3.83"
   resolved "http://registry.npm.taobao.org/electron-to-chromium/download/electron-to-chromium-1.3.83.tgz#74584eb0972bb6777811c5d68d988c722f5e6666"
   integrity sha1-dFhOsJcrtnd4EcXWjZiMci9eZmY=
+
+element-react@^1.4.24:
+  version "1.4.24"
+  resolved "http://registry.npm.taobao.org/element-react/download/element-react-1.4.24.tgz#262dc24c06ab8e230d1d19af558d5f52f53e9f9f"
+  integrity sha1-Ji3CTAarjiMNHRmvVY1fUvU+n58=
+  dependencies:
+    async-validator "^1.8.5"
+    classnames "^2.2.6"
+    popper.js "^1.14.4"
+    prop-types "^15.6.2"
+    raf "^3.4.0"
+    react-click-outside "^3.0.0"
+    throttle-debounce "^1.0.1"
+
+element-theme-default@^1.4.13:
+  version "1.4.13"
+  resolved "http://registry.npm.taobao.org/element-theme-default/download/element-theme-default-1.4.13.tgz#70f9b754f9a1059d20c3225fe12eb55cc1e8abf9"
+  integrity sha1-cPm3VPmhBZ0gwyJf4S61XMHoq/k=
 
 elliptic@^6.0.0:
   version "6.4.1"
@@ -2608,7 +2633,7 @@ hmac-drbg@^1.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
-hoist-non-react-statics@^2.5.0:
+hoist-non-react-statics@^2.1.1, hoist-non-react-statics@^2.5.0:
   version "2.5.5"
   resolved "http://registry.npm.taobao.org/hoist-non-react-statics/download/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
   integrity sha1-xZA89AnA39kI84jmGdhrnBF0y0c=
@@ -4157,6 +4182,11 @@ pkg-dir@^2.0.0:
   dependencies:
     find-up "^2.1.0"
 
+popper.js@^1.14.4:
+  version "1.14.6"
+  resolved "http://registry.npm.taobao.org/popper.js/download/popper.js-1.14.6.tgz#ab20dd4edf9288b8b3b6531c47c361107b60b4b0"
+  integrity sha1-qyDdTt+SiLiztlMcR8NhEHtgtLA=
+
 portfinder@^1.0.9:
   version "1.0.19"
   resolved "http://registry.npm.taobao.org/portfinder/download/portfinder-1.0.19.tgz#07e87914a55242dcda5b833d42f018d6875b595f"
@@ -4343,7 +4373,7 @@ raf-schd@^2.1.1:
   resolved "http://registry.npm.taobao.org/raf-schd/download/raf-schd-2.1.2.tgz#ec622b5167f2912089f054dc03ebd5bcf33c8f62"
   integrity sha1-7GIrUWfykSCJ8FTcA+vVvPM8j2I=
 
-raf@^3.1.0, raf@^3.3.2:
+raf@^3.1.0, raf@^3.3.2, raf@^3.4.0:
   version "3.4.1"
   resolved "http://registry.npm.taobao.org/raf/download/raf-3.4.1.tgz#0742e99a4a6552f445d73e3ee0328af0ff1ede39"
   integrity sha1-B0LpmkplUvRF1z4+4DKK8P8e3jk=
@@ -4422,6 +4452,13 @@ react-beautiful-dnd@6.0.1:
     redux "^3.7.2"
     redux-thunk "^2.2.0"
     reselect "^3.0.1"
+
+react-click-outside@^3.0.0:
+  version "3.0.1"
+  resolved "http://registry.npm.taobao.org/react-click-outside/download/react-click-outside-3.0.1.tgz#6e77e84d2f17afaaac26dbad743cbbf909f5e24c"
+  integrity sha1-bnfoTS8Xr6qsJtutdDy7+Qn14kw=
+  dependencies:
+    hoist-non-react-statics "^2.1.1"
 
 react-dom@^16.6.1:
   version "16.6.1"
@@ -5356,6 +5393,11 @@ tar@^4:
     mkdirp "^0.5.0"
     safe-buffer "^5.1.2"
     yallist "^3.0.2"
+
+throttle-debounce@^1.0.1:
+  version "1.1.0"
+  resolved "http://registry.npm.taobao.org/throttle-debounce/download/throttle-debounce-1.1.0.tgz#51853da37be68a155cb6e827b3514a3c422e89cd"
+  integrity sha1-UYU9o3vmihVctugns1FKPEIuic0=
 
 thunky@^1.0.2:
   version "1.0.3"

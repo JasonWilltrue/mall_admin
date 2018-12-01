@@ -2,14 +2,15 @@
  * @Author: Jerrychan
  * @Date: 2018-11-08 15:00:16
  * @LastEditors: Jerrychan
- * @LastEditTime: 2018-11-29 23:58:43
+ * @LastEditTime: 2018-11-30 22:52:40
  * @Description: 入口文件
  */
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Redirect, Route, Link } from 'react-router-dom';
-import 'zent/css/index.css';
+import 'element-theme-default';
+
 import Home from 'page/home/index.jsx';
 import Login from 'page/login/index.jsx';
 import Layout from 'component/layout/index.jsx';
