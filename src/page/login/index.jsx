@@ -2,7 +2,7 @@
  * @Author: Jerrychan
  * @Date: 2018-11-08 17:29:44
  * @LastEditors: Jerrychan
- * @LastEditTime: 2018-11-30 22:59:11
+ * @LastEditTime: 2018-12-04 13:42:09
  * @Description: 登陆页
  */
 
@@ -10,7 +10,7 @@ import React from 'react';
 import MUtil from 'util/mm.jsx';
 import './index.less';
 import UserService from 'service/user-service.jsx';
-import { Button } from 'element-react';
+import { Button, Input } from 'element-react';
 let _mm = new MUtil();
 let _user = new UserService();
 
@@ -25,12 +25,17 @@ class Login extends React.Component {
 	}
 	componentWillMount() {
 		document.title = '登录 - MMALL ADMIN';
+		//页面监听keyd 事件
 	}
-	onInputKeyUp(e) {
+
+	onKeyUp(e) {
+		// document.addEventListener("keydown",this.handleEnterKey.bind(this));
+		// console.log(this);
 		if (e.keyCode === 13) {
 			this.onSubmit();
 		}
 	}
+
 	/**
 	 * get一个  当input框很多的时候 只用一个函数解决所有输入问题
 	 * @param {} e
@@ -90,14 +95,10 @@ class Login extends React.Component {
 									className="form-control"
 									placeholder="请输入密码"
 									onChange={e => this.onInputChange(e)}
+									onKeyUp={e => this.onKeyUp(e)}
 								/>
 							</div>
-							<Button
-								type="success"
-								className="loginBtn"
-								onClick={e => this.onSubmit(e)}
-								onKeyUp={e => this.onInputKeyUp(e)}
-							>
+							<Button type="success" className="loginBtn" onClick={e => this.onSubmit(e)}>
 								登录
 							</Button>
 						</div>
