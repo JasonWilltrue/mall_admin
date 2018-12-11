@@ -2,7 +2,7 @@
  * @Author: Jerrychan
  * @Date: 2018-11-08 13:38:04
  * @LastEditors: Jerrychan
- * @LastEditTime: 2018-12-04 15:42:43
+ * @LastEditTime: 2018-12-05 11:34:39
  * @Description: webpack配置文件
  */
 
@@ -21,7 +21,7 @@ module.exports = {
 	entry: './src/app.jsx',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		publicPath: WEBPACK_ENV === 'dev' ? '/dist/' : '//admin.52react.cn/mall_admin/dist/',
+		publicPath: WEBPACK_ENV === 'dev' ? '/dist/' : '/dist/',
 		filename: 'js/app.js',
 	},
 	resolve: {

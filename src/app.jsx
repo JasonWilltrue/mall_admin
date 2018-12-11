@@ -2,7 +2,7 @@
  * @Author: Jerrychan
  * @Date: 2018-11-08 15:00:16
  * @LastEditors: Jerrychan
- * @LastEditTime: 2018-12-04 13:59:31
+ * @LastEditTime: 2018-12-04 18:06:33
  * @Description: 入口文件
  */
 
@@ -19,6 +19,7 @@ import Error from 'page/error/index.jsx';
 import ProductRouter from 'page/product/router.jsx';
 import OrderList from 'page/order/index.jsx';
 import OrderDetail from 'page/order/detail.jsx';
+
 class App extends Component {
 	render() {
 		let LayoutRouter = (
